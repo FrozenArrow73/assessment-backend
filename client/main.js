@@ -19,6 +19,9 @@ function getFortune () {
         .then((result) => {
             const data = result.data
             alert(data)
+        }).catch((err)=>{
+            console.log(err)
+            alert("Get fortune failed. The server might not be turn on")
         })
 }
 
@@ -37,7 +40,7 @@ function createCustomeFortune (event) {
         }).catch((err)=>{
             console.log(err)
             console.log("unable to add fortune")
-            alert("Unable to add fortune. There may already be a custome fortune.")
+            alert("Add custom fortune failed. There may already be a custome fortune")
         })
 
 }
@@ -49,7 +52,7 @@ function deleteFortune () {
             alert("Custom fortune DELETED!")
         }).catch((err)=>{
             console.log(err)
-            alert("Delete failed")
+            alert("Delete failed. There may not be a custom fortune to delete")
         })
 }
 
@@ -65,10 +68,10 @@ function replaceFortune (event) {
 
     axios.put("http://localhost:4000/api/fortune/", body)
         .then((result) => {
-            alert("fortune successfully added")
+            alert("fortune successfully replaced")
         }).catch((err)=>{
             console.log(err)
-            alert("replace failed")
+            alert("replace failed. There may not be a custom fortune to replace")
         })
 }
 
