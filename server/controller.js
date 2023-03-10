@@ -8,6 +8,14 @@ module.exports = {
         let randomCompliment = compliments[randomIndex];
       
         res.status(200).send(randomCompliment);
+    },
+    getFortune: (req, res) => {
+        const fortunes = ["I see doom in your future", "Today is your lucky day", "I see only a small amount of doom in your future", "you will meet someone important today", "You will die! Someday..."]
+
+        let randomIndex = Math.floor(Math.random() * fortunes.length)
+        let randomFortune = fortunes[randomIndex]
+
+        res.status(200).send(randomFortune)
     }
 
 }
